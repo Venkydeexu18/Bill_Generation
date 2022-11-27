@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./static/js/app.js" defer type="module"></script>
+    <script src="./static/js/data.js" defer type="module"></script>
+    <script src="./static/js/mandals.js" defer type="module"></script>
+    <link rel="stylesheet" href="./static/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.js" integrity="sha512-Bw9Zj8x4giJb3OmlMiMaGbNrFr0ERD2f9jL3en5FmcTXLhkI+fKyXVeyGyxKMIl1RfgcCBDprJJt4JvlglEb3A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>GWSEA-AP/History</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <img src= {{ url_for('static', filename='favico.png') }} width="4%" height="70%">
+            <div class="navlist">
+                <a href="/" class="navitem">GWSEA-AP</a>
+                <a href="/form" class="navitem">Reciept</a>
+                <a href="/history" class="navitem selected">History</a>
+            </div>
+        </div>
+        <div class="formContainer" action="/history">
+            <div class="form">
+                <p class="head">Previous Transactions</p>
+                <img src="./assets/favico.png" alt="" class="watermark">
+                <div class="listcontainer">
+                    {% if sheet!= undefined %}
+                    <table id="demo" width="90%" align="center">
+                        {% for row in range(1, sheet.max_row + 1) %}
+                        <tr align="center">
+                        {% for col in range(1, sheet.max_column + 1): %}
+                        {% if sheet.cell(row, col).value == None %}
+                            <td> </td>
+                        {% else %}
+                            <td>{{sheet.cell(row, col).value}}</td>
+                        {% endif %}
+                        </td>
+                        {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </table>
+                {% endif %}
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+
+</html>

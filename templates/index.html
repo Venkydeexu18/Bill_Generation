@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./static/js/data.js" defer type="module"></script>
+    <script src="./static/js/mandals.js" defer type="module"></script>
+    <link rel="stylesheet" href="./static/css/style1.css">
+    <title>GWSEA-AP</title>
+</head>
+<body>
+    <div class="billcontainer">
+        <form action="/form1"  id="pdfcont" class="formcontainer" method = "POST">
+            <img src="./static/favico.png" alt="" class="background">
+            <div class="form">
+                <div class="topbar">
+                    <div class="header">
+                        <div class="head">GWSEA-AP Invoice</div>
+                    </div>
+                    <div class="tdata">
+                        <p class="label" id="rec">{{rno}}</p>
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="dlab">
+                        <p class="label">Employee Id:
+                            <div class="thick">{{eid}}</div>
+                        </p>
+                    </div>
+                    <div class="dlab">
+                        <p class="label">Employee Name: <div class="thick">{{ename}}</div></p>
+                    </div>
+                    <div class="dlab">
+                        <p class="label">Designation: <div class="thick">{{desig}}</div></p>
+                    </div>
+                    <div class="dlab">
+                        <p class="label">Mandala: <div class="thick">{{man}}</div></p>
+                    </div>
+                    <div class="dlab">
+                        <p class="label">District: <div class="thick">{{dist}}</div></p>
+                    </div>
+                    <div class="dlab">
+                        <p class="label">Amount: <div class="thick">{{amt}}</div></p>
+                    </div>
+                </div>
+                <div class="signaturecontainer">
+                    <p class="tsign">signature</p>
+                </div>
+            </div>
+        </form>
+    </div>
+    <button class="fbtn" id="download">Download Bill</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="./static/js/app.js" defer type="module"></script>
+</body>
+    </html>

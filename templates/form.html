@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./static/js/app.js" defer type="module"></script>
+    <script src="./static/js/data.js" defer type="module"></script>
+    <script src="./static/js/mandals.js" defer type="module"></script>
+    <link rel="stylesheet" href="./static/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.js" integrity="sha512-Bw9Zj8x4giJb3OmlMiMaGbNrFr0ERD2f9jL3en5FmcTXLhkI+fKyXVeyGyxKMIl1RfgcCBDprJJt4JvlglEb3A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>GWSEA-AP</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <img src={{ url_for('static', filename='favico.png' ) }} width="4%" height="70%">
+            <div class="navlist">
+                <a href="/" class="navitem">GWSEA-AP</a>
+                <a href="/form" class="navitem selected">Reciept</a>
+                <a href="/history" class="navitem">History</a>
+            </div>
+        </div>
+        <div class="formContainer">
+            <div class="form" style="width: 50%;">
+                    <form action="/form1" method="POST">
+                        <div class="inputs">
+                            <div class="inpwrapper">
+                                <label class="label">Reciept no</label>
+                                <input type="text" name="receipt_no" class="inp" placeholder="Ex: 17273">
+                            </div>
+                            <div class="inpwrapper">
+                                <label class="label">Employee Id</label>
+                                <input type="text" name="employee_id" class="inp">
+                            </div>
+                        </div>
+                        <div class="inputs">
+                            <div class="inpwrapper" style="width:100%">
+                                <label class="label">Employee Name</label>
+                                <input type="text" name="employee_name" class="inp" style="width: 95%">
+                            </div>
+                        </div>
+                        <div class="inputs">
+                            <div class="inpwrapper">
+                                <label class="label">Designation</label>
+                                <input type="text" class="inp" id="des" name="designation"
+                                    placeholder="Ex: select from drop menu">
+                                <div class="dropcontainer" id="designations"></div>
+                            </div>
+                            <div class="inpwrapper">
+                                <label class="label">Mandalam</label>
+                                <input type="text" class="inp" name="mandal" id="mandals"
+                                    placeholder="Select Mandal from the drop menu">
+                                <div class="dropcontainer" id="mandalsContainer"></div>
+                            </div>
+                        </div>
+                        <div class="inputs">
+                            <div class="inpwrapper">
+                                <label class="label">District</label>
+                                <input type="text" class="inp" name="district" placeholder="Ex: select from drop menu">
+                            </div>
+                            <div class="inpwrapper">
+                                <label class="label">Amount</label>
+                                <input type="number" name="amount" class="inp"
+                                    placeholder="Enter Chalana amount in numbers">
+                            </div>
+                        </div>
+                        <input type="submit" class="btn">
+                    </form>
+                    
+                </div>
+        </div>
+    </div>
+</body>
+
+</html>
