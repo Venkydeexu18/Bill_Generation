@@ -1,0 +1,8 @@
+Flask
+Flask-SQLAlchemy
+fpdf
+openpyxl
+pandas
+pdfkit
+SQLAlchemy
+sqlparse
